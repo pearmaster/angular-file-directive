@@ -18,10 +18,7 @@ angular.module('ngFile', [])
             reader.file = file;
             reader.onload = function (e) {
               var body = e.target.result;
-              // Base64 Encode file of type other than 'text'
-              if (!isText) {
-                body = btoa(body);
-              }
+
               // Compile data from file
               files.push({
                 updatedAt: file.lastModifiedDate.toJSON(),
@@ -42,7 +39,7 @@ angular.module('ngFile', [])
             if (isText) {
               reader.readAsText(file);
             } else {
-              reader.readAsBinaryString(file);
+              reader.readAsArrayBuffer(file);
             }
           });
         });
