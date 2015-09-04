@@ -48,6 +48,7 @@ angular.module('ngFile', [])
   }])
   .factory('base64EncodeArrayBuffer', function () {
     return function(arraybuffer) {
+      var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
       var bytes = new Uint8Array(arraybuffer),
       i, len = bytes.length, base64 = "";
   
